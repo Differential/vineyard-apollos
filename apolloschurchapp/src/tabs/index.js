@@ -15,17 +15,10 @@ import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding'
 import Connect from './connect';
 import tabBarIcon from './tabBarIcon';
 
-const HeaderLogo = withTheme(({ theme }) => ({
-  style: {
-    height: theme.sizing.baseUnit * 2.5,
-    width: '70%',
-    resizeMode: 'contain',
-  },
-  source:
-    theme.type === 'light'
-      ? require('./wordmark.png')
-      : require('./wordmark.dark.png'),
-}))(Image);
+const HeaderLogo = withTheme(() => ({
+  size: 24,
+  name: 'brand-icon',
+}))(Icon);
 
 const SearchIcon = withTheme(({ theme: { colors, sizing: { baseUnit } } }) => ({
   name: 'search',

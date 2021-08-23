@@ -99,27 +99,27 @@ const TabNavigator = () => {
       <Screen
         name="Home"
         component={HomeTab}
-        options={{ tabBarIcon: tabBarIcon('home') }}
+        options={{ tabBarIcon: tabBarIcon('house') }}
       />
       <Screen
         name="Ready"
         component={ReadyTab}
-        options={{ tabBarIcon: tabBarIcon('sections') }}
+        options={{ tabBarIcon: tabBarIcon('ready') }}
       />
       <Screen
         name="Set"
         component={SetTab}
-        options={{ tabBarIcon: tabBarIcon('video') }}
+        options={{ tabBarIcon: tabBarIcon('set') }}
       />
       <Screen
         name="Go"
         component={GoTab}
-        options={{ tabBarIcon: tabBarIcon('like') }}
+        options={{ tabBarIcon: tabBarIcon('go') }}
       />
       <Screen
         name="Stories"
         component={StoriesTab}
-        options={{ tabBarIcon: tabBarIcon('like') }}
+        options={{ tabBarIcon: tabBarIcon('chat-dots') }}
       />
     </Navigator>
   );

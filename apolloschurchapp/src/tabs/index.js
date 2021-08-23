@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Image } from 'react-native';
+// import { Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
@@ -12,7 +12,7 @@ import {
 import { useApolloClient } from '@apollo/client';
 import { createFeatureFeedTab } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
-import Connect from './connect';
+// import Connect from './connect';
 import tabBarIcon from './tabBarIcon';
 
 const HeaderLogo = withTheme(() => ({
@@ -47,26 +47,34 @@ const HomeTab = createFeatureFeedTab({
   screenOptions: {
     headerHideShadow: true,
     headerCenter: HeaderCenter,
-    headerRight: HeaderRight,
     headerLargeTitle: false,
   },
   tabName: 'Home',
   feedName: 'HOME',
 });
 
-const ReadTab = createFeatureFeedTab({
-  tabName: 'Read',
+const ReadyTab = createFeatureFeedTab({
+  tabName: 'Be Ready',
   feedName: 'READ',
 });
 
-const WatchTab = createFeatureFeedTab({
-  tabName: 'Watch',
+const SetTab = createFeatureFeedTab({
+  tabName: 'Get Set',
   feedName: 'WATCH',
 });
 
-const PrayTab = createFeatureFeedTab({
-  tabName: 'Pray',
+const GoTab = createFeatureFeedTab({
+  screenOptions: {
+    headerRight: HeaderRight,
+  },
+  tabName: 'Go Serve',
   feedName: 'PRAY',
+});
+
+// This is not hooked up to the schema yet
+const StoriesTab = createFeatureFeedTab({
+  tabName: 'Stories',
+  // feedName: 'STORIES',
 });
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -94,24 +102,24 @@ const TabNavigator = () => {
         options={{ tabBarIcon: tabBarIcon('home') }}
       />
       <Screen
-        name="Read"
-        component={ReadTab}
+        name="Ready"
+        component={ReadyTab}
         options={{ tabBarIcon: tabBarIcon('sections') }}
       />
       <Screen
-        name="Watch"
-        component={WatchTab}
+        name="Set"
+        component={SetTab}
         options={{ tabBarIcon: tabBarIcon('video') }}
       />
       <Screen
-        name="Pray"
-        component={PrayTab}
+        name="Go"
+        component={GoTab}
         options={{ tabBarIcon: tabBarIcon('like') }}
       />
       <Screen
-        name="Connect"
-        component={Connect}
-        options={{ tabBarIcon: tabBarIcon('profile') }}
+        name="Stories"
+        component={StoriesTab}
+        options={{ tabBarIcon: tabBarIcon('like') }}
       />
     </Navigator>
   );

@@ -10,8 +10,8 @@ const { Screen, Navigator } = createNativeStackNavigator();
 const ContentSingleNavigator = ({ route, navigation, ...props }) => (
   <Navigator
     {...props}
-    headerMode="float"
     screenOptions={{
+      headerMode: 'float',
       headerTranslucent: true,
       headerStyle: { backgroundColor: 'transparent' },
       headerHideShadow: true,

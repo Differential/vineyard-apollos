@@ -79,7 +79,7 @@ const StoriesTab = createFeatureFeedTab({
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-const TabNavigator = () => {
+const TabNavigator = (props) => {
   const client = useApolloClient();
   // this is only used by the tab loaded first
   // if there is a new version of the onboarding flow,
@@ -94,8 +94,20 @@ const TabNavigator = () => {
     },
     [client]
   );
+  console.warn(props.route?.state?.index);
+  let activeColor;
+
+  if (props.route?.state?.index === 1) {
+    activeColor = 'rgba(79, 110, 174, 1)';
+  } else if (props.route?.state?.index === 2) {
+    activeColor = 'rgba(95, 192, 194, 1)';
+  } else if (props.route?.state?.index === 3) {
+    activeColor = 'rgba(250, 101, 85, 1)';
+  } else {
+    activeColor = '#000000';
+  }
   return (
-    <Navigator lazy>
+    <Navigator lazy tabBarOptions={{ activeTintColor: activeColor }}>
       <Screen
         name="Home"
         component={HomeTab}

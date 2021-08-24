@@ -107,7 +107,10 @@ const TabNavigator = (props) => {
     activeColor = '#000000';
   }
   return (
-    <Navigator lazy tabBarOptions={{ activeTintColor: activeColor }}>
+    <Navigator
+      screenOptions={{ lazy: true }}
+      tabBarOptions={{ activeTintColor: activeColor }}
+    >
       <Screen
         name="Home"
         component={HomeTab}

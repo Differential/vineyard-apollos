@@ -13,9 +13,11 @@ import {
   Touchable,
 } from '@apollosproject/ui-kit';
 import { useApolloClient } from '@apollo/client';
-import { createFeatureFeedTab } from '@apollosproject/ui-connected';
+import {
+  UserAvatarConnected,
+  createFeatureFeedTab,
+} from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
-// import Connect from './connect';
 import tabBarIcon from './tabBarIcon';
 
 const HeaderLogo = withTheme(() => ({
@@ -39,6 +41,17 @@ SearchButton.propTypes = {
   onPress: PropTypes.func,
 };
 
+const Avatar = withTheme(({ theme: { sizing: { baseUnit } } }) => ({
+  size: 'small',
+  containerStyle: {
+    bottom: baseUnit * 0.25,
+  },
+}))(UserAvatarConnected);
+
+const HeaderLeft = () => {
+  const navigation = useNavigation();
+  return <Avatar onPressIcon={() => navigation.navigate('Connect')} />;
+};
 const HeaderCenter = () => <HeaderLogo source={require('./wordmark.png')} />;
 const HeaderRight = () => {
   const navigation = useNavigation();
@@ -49,6 +62,7 @@ const HeaderRight = () => {
 const HomeTab = createFeatureFeedTab({
   screenOptions: {
     headerHideShadow: true,
+    headerLeft: HeaderLeft,
     headerCenter: HeaderCenter,
     headerLargeTitle: false,
   },
@@ -57,17 +71,24 @@ const HomeTab = createFeatureFeedTab({
 });
 
 const ReadyTab = createFeatureFeedTab({
+  screenOptions: {
+    headerLeft: HeaderLeft,
+  },
   tabName: 'Be Ready',
   feedName: 'READ',
 });
 
 const SetTab = createFeatureFeedTab({
+  screenOptions: {
+    headerLeft: HeaderLeft,
+  },
   tabName: 'Get Set',
   feedName: 'WATCH',
 });
 
 const GoTab = createFeatureFeedTab({
   screenOptions: {
+    headerLeft: HeaderLeft,
     headerRight: HeaderRight,
   },
   tabName: 'Go Serve',
@@ -148,6 +169,10 @@ const TabNavigator = ({ route }) => {
       />
     </Navigator>
   );
+};
+
+TabNavigator.propTypes = {
+  route: PropTypes.string,
 };
 
 export default TabNavigator;

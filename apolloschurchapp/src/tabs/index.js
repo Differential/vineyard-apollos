@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import { Image } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
+import {
+  getFocusedRouteNameFromRoute,
+  useNavigation,
+} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
   NavigationService,
@@ -79,7 +82,7 @@ const StoriesTab = createFeatureFeedTab({
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
-const TabNavigator = (props) => {
+const TabNavigator = ({ route }) => {
   const client = useApolloClient();
   // this is only used by the tab loaded first
   // if there is a new version of the onboarding flow,
@@ -94,16 +97,38 @@ const TabNavigator = (props) => {
     },
     [client]
   );
-  let activeColor;
+  // let activeColor;
 
-  if (props.route?.state?.index === 1) {
-    activeColor = 'rgba(79, 110, 174, 1)';
-  } else if (props.route?.state?.index === 2) {
-    activeColor = 'rgba(95, 192, 194, 1)';
-  } else if (props.route?.state?.index === 3) {
-    activeColor = 'rgba(250, 101, 85, 1)';
-  } else {
-    activeColor = '#000000';
+  // if (props.route?.state?.index === 1) {
+  //   activeColor = 'rgba(79, 110, 174, 1)';
+  // } else if (props.route?.state?.index === 2) {
+  //   activeColor = 'rgba(95, 192, 194, 1)';
+  // } else if (props.route?.state?.index === 3) {
+  //   activeColor = 'rgba(250, 101, 85, 1)';
+  // } else {
+  //   activeColor = '#000000';
+  // }
+
+  // This checks which tab is currently selected and sets the activeTintColor appropriately for each individual tab. The first time the app is loaded the route name is undefined, thus the default case.
+  let activeColor;
+  const colorScheme = useColorScheme();
+
+  switch (getFocusedRouteNameFromRoute(route)) {
+    case 'Ready':
+      activeColor = 'rgba(79, 110, 174, 1)';
+      break;
+    case 'Set':
+      activeColor = 'rgba(95, 192, 194, 1)';
+      break;
+    case 'Go':
+      activeColor = 'rgba(250, 101, 85, 1)';
+      break;
+    default:
+      if (colorScheme === 'light') {
+        activeColor = '#000000';
+      } else {
+        activeColor = '#ffffff';
+      }
   }
 
   return (

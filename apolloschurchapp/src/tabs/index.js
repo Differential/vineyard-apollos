@@ -94,7 +94,6 @@ const TabNavigator = (props) => {
     },
     [client]
   );
-  console.warn(props.route?.state?.index);
   let activeColor;
 
   if (props.route?.state?.index === 1) {
@@ -106,6 +105,7 @@ const TabNavigator = (props) => {
   } else {
     activeColor = '#000000';
   }
+
   return (
     <Navigator
       screenOptions={{ lazy: true }}

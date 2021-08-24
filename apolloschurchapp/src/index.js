@@ -32,6 +32,7 @@ import Providers from './Providers';
 import ContentSingle from './content-single';
 import Event from './event';
 import Tabs from './tabs';
+import Connect from './tabs/connect';
 import customTheme, { customIcons } from './theme';
 
 enableScreens(); // improves performance for react-navigation
@@ -138,6 +139,7 @@ const App = () => (
             />
             <Screen name="LandingScreen" component={LandingToAuth} />
             <Screen name="Search" component={SearchScreenConnected} />
+            <Screen name="Connect" component={Connect} />
           </Navigator>
         </Providers>
       </ThemedNavigationContainer>

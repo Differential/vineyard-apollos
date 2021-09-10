@@ -86,13 +86,10 @@ const HeaderRight = () => {
 
 // we nest stack inside of tabs so we can use all the fancy native header features
 const HomeTab = createFeatureFeedTab({
-  screenOptions: {
+  options: {
     headerHideShadow: true,
     headerCenter: HeaderCenter,
-    // ***MIGHT NEED TO DELETE***
-    headerRight: HeaderRight,
     headerLeft: HeaderLeft,
-    // ***MIGHT NEED TO DELETE***
     headerLargeTitle: false,
   },
   tabName: 'Home',
@@ -103,6 +100,7 @@ const ReadyTab = createFeatureFeedTab({
   tabName: 'Be Ready',
   feedName: 'READ',
   options: {
+    headerLeft: HeaderLeft,
     headerTintColor: theme.colors.primary,
   },
 });
@@ -111,25 +109,28 @@ const SetTab = createFeatureFeedTab({
   tabName: 'Get Set',
   feedName: 'WATCH',
   options: {
+    headerLeft: HeaderLeft,
     headerTintColor: theme.colors.secondary,
   },
 });
 
 const GoTab = createFeatureFeedTab({
-  screenOptions: {
+  options: {
+    headerLeft: HeaderLeft,
     headerRight: HeaderRight,
+    headerTintColor: theme.colors.tertiary,
   },
   tabName: 'Go Serve',
   feedName: 'PRAY',
-  options: {
-    headerTintColor: theme.colors.tertiary,
-  },
 });
 
 // This is not hooked up to the schema yet
 const StoriesTab = createFeatureFeedTab({
   tabName: 'Stories',
   // feedName: 'STORIES',
+  options: {
+    headerLeft: HeaderLeft,
+  },
 });
 
 const { Navigator, Screen } = createBottomTabNavigator();
@@ -200,6 +201,10 @@ const TabNavigator = ({ route }) => {
       />
     </Navigator>
   );
+};
+
+TabNavigator.propTypes = {
+  route: PropTypes.string,
 };
 
 export default TabNavigator;

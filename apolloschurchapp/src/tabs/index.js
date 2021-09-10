@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useColorScheme } from 'react-native';
+import { View, useColorScheme } from 'react-native';
 import {
   getFocusedRouteNameFromRoute,
   useNavigation,
@@ -13,7 +13,10 @@ import {
   Touchable,
 } from '@apollosproject/ui-kit';
 import { useApolloClient } from '@apollo/client';
-import { createFeatureFeedTab } from '@apollosproject/ui-connected';
+import {
+  createFeatureFeedTab,
+  UserAvatarConnected,
+} from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 // import Connect from './connect';
 import theme from '../theme';
@@ -40,10 +43,45 @@ SearchButton.propTypes = {
   onPress: PropTypes.func,
 };
 
+const Avatar = withTheme(({ theme: { sizing: { baseUnit } } }) => ({
+  size: 'small',
+  containerStyle: {
+    paddingBottom: baseUnit * 0.25,
+  },
+}))(UserAvatarConnected);
+
+const ProfileButton = ({ onPress }) => (
+  <Touchable onPress={onPress}>
+    <View>
+      <Avatar />
+    </View>
+  </Touchable>
+);
+
+ProfileButton.propTypes = {
+  onPress: PropTypes.func,
+};
+
+const HeaderLeft = () => {
+  const navigation = useNavigation();
+  return (
+    <ProfileButton
+      onPress={() => {
+        navigation.navigate('UserSettingsNavigator');
+      }}
+    />
+  );
+};
 const HeaderCenter = () => <HeaderLogo source={require('./wordmark.png')} />;
 const HeaderRight = () => {
   const navigation = useNavigation();
-  return <SearchButton onPress={() => navigation.navigate('Search')} />;
+  return (
+    <SearchButton
+      onPress={() => {
+        navigation.navigate('Search');
+      }}
+    />
+  );
 };
 
 // we nest stack inside of tabs so we can use all the fancy native header features
@@ -51,6 +89,10 @@ const HomeTab = createFeatureFeedTab({
   screenOptions: {
     headerHideShadow: true,
     headerCenter: HeaderCenter,
+    // ***MIGHT NEED TO DELETE***
+    headerRight: HeaderRight,
+    headerLeft: HeaderLeft,
+    // ***MIGHT NEED TO DELETE***
     headerLargeTitle: false,
   },
   tabName: 'Home',

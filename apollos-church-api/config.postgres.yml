@@ -100,20 +100,21 @@ ROCK_MAPPINGS:
 TABS:
   HOME:
     - algorithms:
-      - type: CONTENT_FEED
+      - type: BE_READY_CONTENT_FEED
         arguments:
           channelIds:
             - 2055
+          limit: 1
       type: HeroList
     - algorithms:
-      - type: CONTENT_FEED
+      - type: GET_SET_CONTENT_FEED
         arguments:
           channelIds:
             - 2056
           limit: 1
       type: HeroList
     - algorithms:
-      - type: CONTENT_FEED
+      - type: GO_SERVE_CONTENT_FEED
         arguments:
           channelIds:
             - 2060

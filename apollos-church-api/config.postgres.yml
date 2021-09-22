@@ -100,25 +100,31 @@ ROCK_MAPPINGS:
 TABS:
   HOME:
     - algorithms:
-      - type: BE_READY_CONTENT_FEED
+      - type: CONTENT_FEED
         arguments:
           channelIds:
             - 2055
           limit: 1
+          subtitle: Be Ready
+          hasImage: false
       type: HeroList
     - algorithms:
-      - type: GET_SET_CONTENT_FEED
+      - type: CONTENT_FEED
         arguments:
           channelIds:
             - 2056
           limit: 1
+          subtitle: Get Set
+          hasImage: false
       type: HeroList
     - algorithms:
-      - type: GO_SERVE_CONTENT_FEED
+      - type: CONTENT_FEED
         arguments:
           channelIds:
             - 2060
           limit: 1
+          subtitle: Go Serve
+          hasImage: false
       type: HeroList
     - algorithms: [DAILY_PRAYER]
       isCard: true

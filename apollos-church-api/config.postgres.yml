@@ -106,7 +106,6 @@ TABS:
             - 2055
           limit: 1
           subtitle: Be Ready
-          hasImage: false # This is part of the custom content feed algorithm to make a content item not have an image
       type: HeroList
     - algorithms:
       - type: CONTENT_FEED
@@ -115,7 +114,6 @@ TABS:
             - 2056
           limit: 1
           subtitle: Get Set
-          hasImage: false
       type: HeroList
     - algorithms:
       - type: CONTENT_FEED
@@ -124,7 +122,6 @@ TABS:
             - 2060
           limit: 1
           subtitle: Go Serve
-          hasImage: false
       type: HeroList
     - algorithms: [DAILY_PRAYER]
       isCard: true

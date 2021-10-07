@@ -10,7 +10,6 @@ class dataSource extends ActionAlgorithm.dataSource {
     channelIds = [],
     limit = 20,
     skip = 0,
-    hasImage = true,
   } = {}) {
     const { ContentItem } = this.context.dataSources;
     const items = await ContentItem.getFromCategoryIds(channelIds, {
@@ -22,7 +21,7 @@ class dataSource extends ActionAlgorithm.dataSource {
       title: item.title,
       subtitle: subtitle || item.contentChannel?.name,
       relatedNode: item,
-      image: hasImage ? item.getCoverImage() : null,
+      image: item.getCoverImage(),
       action: 'READ_CONTENT',
       summary: item.summary,
     }));

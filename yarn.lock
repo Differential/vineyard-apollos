@@ -254,13 +254,13 @@
     passkit-generator "1.5.9"
     qrcode "^1.3.3"
 
-"@apollosproject/data-connector-postgres@^2.34.0":
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-postgres/-/data-connector-postgres-2.34.0.tgz#aba55f68e5872ad873494a09b14a8951f6db5290"
-  integrity sha512-M24mzDiWZt9G4CTjFV998ADoe/WThYeA4OEwPKYlDGV3KpsNqGpe9wJTmyfZsGbwnXxKcFhZWQNI2OhnXv2RuQ==
+"@apollosproject/data-connector-postgres@^2.34.1-canary.0":
+  version "2.34.1-canary.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-postgres/-/data-connector-postgres-2.34.1-canary.0.tgz#e8cb9ba5ecea2be1032e1166bdb8af2aac2839f0"
+  integrity sha512-6KfqIryczTRdd+k0F2psKJ6R9iO8gMahY37AI9vneD8C6lMeE67T0KEDA6kwj7jNuWcLa5DG5SL517r3423wMg==
   dependencies:
-    "@apollosproject/data-schema" "^2.34.0"
-    "@apollosproject/server-core" "^2.34.0"
+    "@apollosproject/data-schema" "^2.34.1-canary.0+7d1d5f4e"
+    "@apollosproject/server-core" "^2.34.1-canary.0+7d1d5f4e"
     hyphenation.en-us "^0.2.1"
     hypher "^0.2.5"
     lodash "^4.17.11"
@@ -277,10 +277,10 @@
     apollo-datasource "^0.2.0"
     ioredis "4.14.1"
 
-"@apollosproject/data-connector-rock@^2.34.0":
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.34.0.tgz#2dce23a008173b966e4679ddf36368335a7155e7"
-  integrity sha512-BIkFtRBGEt55BXFWH9K2oSmNKx5tnNB0pe7GsxSlwPB3d8YJjB9Ai7LFrZEJZz0f55+sLnjlfKPw5B9OfWu3Kg==
+"@apollosproject/data-connector-rock@^2.34.1-canary.2":
+  version "2.34.1-canary.2"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-connector-rock/-/data-connector-rock-2.34.1-canary.2.tgz#c8dad4a9c29835c51965b9d9dc3568ad72c8bffa"
+  integrity sha512-OTTxxdalm4L97Yldq7bO1mKIBu9dVmieRMQnkN05SgUdMaOh0TuSyv8MfjRH5wXpanI/kIDzghTJeLt5zMPexA==
   dependencies:
     awesome-phonenumber "^2.4.2"
     form-data "^4.0.0"
@@ -306,6 +306,13 @@
   version "2.34.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.34.0.tgz#b52b78a59e1f756114871bbc330a67fc89372e20"
   integrity sha512-BgKaEhrAAagn1yWNpJ7o+t8BgSAPJkxkCL3RaqWBRMGe3vl1Td5zp8gfX79SWILWH4TlGQxwMh19X9237cM0rQ==
+  dependencies:
+    "@apollo/client" "3.3.20"
+
+"@apollosproject/data-schema@^2.34.1-canary.0", "@apollosproject/data-schema@^2.34.1-canary.0+7d1d5f4e":
+  version "2.34.1-canary.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/data-schema/-/data-schema-2.34.1-canary.0.tgz#868f64999e8e3c86baa71d6d2724337d8611c6b3"
+  integrity sha512-gjSbNXNg/OvLAeCO00g8+hqPm3cA+Sqs/vpFsqZo20qOkTM95UUnS7aGNGc+Z8tRtJgVaJSI9HwTE3OsLe7mdA==
   dependencies:
     "@apollo/client" "3.3.20"
 
@@ -344,6 +351,21 @@
     graphql-upload "^12.0.0"
     lodash "^4.17.11"
 
+"@apollosproject/server-core@^2.34.1-canary.0+7d1d5f4e":
+  version "2.34.1-canary.0"
+  resolved "https://registry.yarnpkg.com/@apollosproject/server-core/-/server-core-2.34.1-canary.0.tgz#ada88f4f05f3a5fa7d3c41c4836778425f979738"
+  integrity sha512-WRcfHaHzjXRvPqDE/HOA9Xp+Jv4fF3bAIPOm0zmo3twKNjAR9ff7IAFCuRlCc+8oCGIUxGmMxytYay/w5snpOQ==
+  dependencies:
+    "@apollo/client" "3.3.20"
+    "@apollosproject/data-schema" "^2.34.1-canary.0+7d1d5f4e"
+    apollo-server-caching "^0.4.0"
+    bull "^3.11.0"
+    bull-board "^0.1.1"
+    express-basic-auth "^1.2.0"
+    graphql-parse-resolve-info "^4.4.5"
+    graphql-upload "^12.0.0"
+    lodash "^4.17.11"
+
 "@apollosproject/ui-analytics@^2.34.0":
   version "2.34.0"
   resolved "https://registry.yarnpkg.com/@apollosproject/ui-analytics/-/ui-analytics-2.34.0.tgz#823c22f43188abf00e31099a61d3592f0a69bea1"
@@ -359,10 +381,10 @@
     formik "1.5.1"
     yup "^0.27.0"
 
-"@apollosproject/ui-connected@^2.34.0":
-  version "2.34.0"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.34.0.tgz#b144e3f1ec6909f1023dbf001527f71531d9c07b"
-  integrity sha512-9yWGcqffcCcmXWDH+Avjda1+tt9m8MEzbIOBesCX1G7YK6E76yARP+S0jgdinUsWq+Tml+UWkRIqxU1Qd/xUPQ==
+"@apollosproject/ui-connected@^2.34.1-canary.1":
+  version "2.34.1-canary.1"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-connected/-/ui-connected-2.34.1-canary.1.tgz#73367ab5bb0780560b6a39c08be2c4fff7513e33"
+  integrity sha512-nuKuT+0MK3m1ow+rxJXsYK97Yi90iKwmWGWsjLlOPwrEZ/EPQz6hZDqhjCm/EBiMpbS8Z+F/50QaQ+80MnTX1g==
   dependencies:
     apollo-upload-client "14.1.3"
     graphql-tag "2.9.2"

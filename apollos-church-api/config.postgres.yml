@@ -106,6 +106,7 @@ TABS:
             - 2055
           limit: 1
           subtitle: Be Ready
+          hasImage: false
       type: HeroList
     - algorithms:
       - type: CONTENT_FEED

@@ -8,6 +8,29 @@ class dataSource extends ActionAlgorithm.dataSource {
     COMPLETED_CONTENT_FEED: this.completedContentFeedAlgorithm.bind(this),
   };
 
+  async contentFeedAlgorithm({
+    subtitle = '',
+    channelIds = [],
+    limit = 20,
+    skip = 0,
+    hasImage = true,
+  } = {}) {
+    const { ContentItem } = this.context.dataSources;
+    const items = await ContentItem.getFromCategoryIds(channelIds, {
+      limit,
+      skip,
+    });
+    return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: subtitle || item.contentChannel?.name,
+      relatedNode: item,
+      image: hasImage ? item.getCoverImage() : null,
+      action: 'READ_CONTENT',
+      summary: item.summary,
+    }));
+  }
+
   async completedContentFeedAlgorithm({ channelId = '' } = {}) {
     if (!channelId) return [];
     const { Person, ContentItem } = this.context.dataSources;

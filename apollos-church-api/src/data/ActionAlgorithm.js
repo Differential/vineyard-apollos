@@ -32,8 +32,8 @@ class dataSource extends ActionAlgorithm.dataSource {
   }
 
   async completedContentFeedAlgorithm({ channelId = '' } = {}) {
-    if (!channelId) return [];
     this.cacheControl.setCacheHint({ scope: 'PRIVATE' });
+    if (!channelId) return [];
 
     const { Person, ContentItem } = this.context.dataSources;
 

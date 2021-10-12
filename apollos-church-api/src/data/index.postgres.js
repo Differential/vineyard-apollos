@@ -48,7 +48,7 @@ import {
   Campus,
   Person as PostgresPerson,
   Media as PostgresMedia,
-  Feature as PostgresFeature,
+  // Feature as PostgresFeature,
   ContentItem as PostgresContentItem,
   ContentItemsConnection,
   ContentItemCategory,
@@ -58,6 +58,7 @@ import {
 
 import * as Theme from './theme';
 import * as PostgresActionAlgorithm from './ActionAlgorithm';
+import * as PostgresFeature from './Feature';
 
 // This modules ties together certain updates so they occurs in both Rock and Postgres.
 // Will be eliminated in the future through an enhancement to the Shovel

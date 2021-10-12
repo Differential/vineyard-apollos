@@ -16,7 +16,7 @@ const Features = memo(
     <Slide {...props}>
       {BackgroundComponent}
       <SlideContent
-        icon="brand-icon"
+        icon="go-do-good"
         title={"We're Glad You're Here."}
         descriptionOne={descriptionOne}
         descriptionTwo={descriptionTwo}

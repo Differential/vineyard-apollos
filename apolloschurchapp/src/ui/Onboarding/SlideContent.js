@@ -22,7 +22,7 @@ const IconWrapper = styled(
 const BrandIcon = withTheme(
   ({ theme, icon }) => ({
     name: typeof icon === 'string' ? icon : 'brand-icon',
-    size: theme.sizing.baseUnit * 6,
+    size: theme.sizing.baseUnit * 10,
   }),
   'ui-onboarding.Slide.SlideContent.BrandIcon'
 )(Icon);
@@ -43,7 +43,7 @@ const Title = styled(
 )(H3);
 
 const DescriptionWrapper = styled(
-  ({ theme }) => ({ alignItems: 'center' }),
+  () => ({ alignItems: 'center' }),
   'ui-onboarding.Slide.SlideContent.DescriptionWrapper'
 )(View);
 
@@ -56,9 +56,9 @@ const Description = styled(
 
 const Wrapper = styled(
   ({ theme }) => ({
-    paddingTop: theme.sizing.baseUnit,
+    paddingVertical: theme.sizing.baseUnit,
     paddingHorizontal: theme.sizing.baseUnit,
-    marginBottom: theme.sizing.baseUnit * 3,
+    marginTop: '50%',
   }),
   'ui-onboarding.Slide.SlideContent.Wrapper'
 )(SafeAreaView);

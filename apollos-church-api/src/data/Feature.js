@@ -5,10 +5,10 @@ import { Feature } from '@apollosproject/data-connector-postgres';
 const id = (type) => ({ apollosId, id: rootId }) =>
   apollosId || createGlobalId(rootId, type);
 
-const { schema, dataSource, resolver: baseResolver } = Feature;
+const { schema, dataSource, resolver } = Feature;
 
-const resolver = {
-  ...baseResolver,
+const testResolver = {
+  ...resolver,
   CardListItem: {
     coverImage: ({ image }) => image,
     title: ({ title }, { hyphenated }, { dataSources: { ContentItem } }) =>
@@ -16,17 +16,16 @@ const resolver = {
         ? ContentItem.createHyphenatedString({ text: title })
         : title,
     actionIcon: ({ subtitle }) => {
-        console.log("subtitle: ", subtitle);
-    //   switch (subtitle) {
-    //     case 'Be Ready':
-    //       return 'themed-ready';
-    //     case 'Get Set':
-    //       return 'themed-set';
-    //     case 'Go Serve':
-    //       return 'themed-go';
-    //     default:
-    //       return null;
-    //   }
+      switch (subtitle) {
+        case 'Be Ready':
+          return 'themed-ready';
+        case 'Get Set':
+          return 'themed-set';
+        case 'Go Serve':
+          return 'themed-go';
+        default:
+          return null;
+      }
     },
     hasAction: (root, args, { dataSources: { ContentItem } }) =>
       root.attributes &&
@@ -36,4 +35,4 @@ const resolver = {
   },
 };
 
-export { dataSource, resolver, schema };
+export { dataSource, testResolver as resolver, schema };

@@ -4,3 +4,6 @@ export Ready from './Ready';
 export Set from './Set';
 export Go from './Go';
 export ChatDots from './ChatDots';
+export ThemedGo from './ThemedGo';
+export ThemedReady from './ThemedReady';
+export ThemedSet from './ThemedSet';

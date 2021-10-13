@@ -22,7 +22,7 @@ const IconWrapper = styled(
 const BrandIcon = withTheme(
   ({ theme, icon }) => ({
     name: typeof icon === 'string' ? icon : 'brand-icon',
-    size: theme.sizing.baseUnit * 10,
+    size: theme.sizing.baseUnit * 12,
   }),
   'ui-onboarding.Slide.SlideContent.BrandIcon'
 )(Icon);
@@ -36,7 +36,7 @@ const TitleWrapper = styled(
 
 const Title = styled(
   ({ theme }) => ({
-    color: theme.colors.primary,
+    color: theme.colors.black,
     textAlign: 'center',
   }),
   'ui-onboarding.Slide.SlideContent.Title'
@@ -54,21 +54,15 @@ const Wrapper = styled(
   ({ theme }) => ({
     paddingVertical: theme.sizing.baseUnit,
     paddingHorizontal: theme.sizing.baseUnit,
-    marginTop: '50%',
+    justifyContent: 'center',
+    height: '90%',
+    paddingBottom: '10%',
   }),
   'ui-onboarding.Slide.SlideContent.Wrapper'
 )(SafeAreaView);
 
 const SlideContent = withIsLoading(
-  ({
-    icon,
-    title,
-    description,
-    descriptionTwo,
-    children,
-    isLoading,
-    ...props
-  }) => {
+  ({ icon, title, description, children, isLoading, ...props }) => {
     if (!icon && !title && !description && !children) {
       console.warn(
         `Warning: You need to pass at least one prop for SlideContent to render something cowboy.`

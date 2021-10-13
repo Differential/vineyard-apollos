@@ -10,8 +10,7 @@ const Features = memo(
     <Slide {...props}>
       {BackgroundComponent}
       <SlideContent
-        icon="go-do-good"
-        title={"We're Glad You're Here."}
+        title={'Be Ready To Grow Together'}
         description={description}
       />
     </Slide>
@@ -39,7 +38,7 @@ Features.propTypes = {
 
 Features.defaultProps = {
   description:
-    "We're Excited To Start This Journey To Overflow Our City With Kindness.",
+    'Learn What It Takes To Do Good And Serve Others. Capture Your Thoughts Through Journaling.',
 };
 
 export default named('ui-onboarding.Features')(Features);

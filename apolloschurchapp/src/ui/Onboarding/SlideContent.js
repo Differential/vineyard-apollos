@@ -30,7 +30,6 @@ const BrandIcon = withTheme(
 const TitleWrapper = styled(
   ({ theme }) => ({
     paddingBottom: theme.sizing.baseUnit * 0.5, // wrapper is used to pad placeholder as well.
-    alignItems: 'center',
   }),
   'ui-onboarding.Slide.SlideContent.TitleWrapper'
 )(View);
@@ -38,18 +37,15 @@ const TitleWrapper = styled(
 const Title = styled(
   ({ theme }) => ({
     color: theme.colors.primary,
+    textAlign: 'center',
   }),
   'ui-onboarding.Slide.SlideContent.Title'
 )(H3);
 
-const DescriptionWrapper = styled(
-  () => ({ alignItems: 'center' }),
-  'ui-onboarding.Slide.SlideContent.DescriptionWrapper'
-)(View);
-
 const Description = styled(
   ({ theme }) => ({
     color: theme.colors.text.secondary,
+    textAlign: 'center',
   }),
   'ui-onboarding.Slide.SlideContent.Description'
 )(H5);
@@ -67,7 +63,7 @@ const SlideContent = withIsLoading(
   ({
     icon,
     title,
-    descriptionOne,
+    description,
     descriptionTwo,
     children,
     isLoading,
@@ -90,10 +86,7 @@ const SlideContent = withIsLoading(
           <TitleWrapper>
             <Title>{title}</Title>
           </TitleWrapper>
-          <DescriptionWrapper>
-            <Description>{descriptionOne}</Description>
-            <Description>{descriptionTwo}</Description>
-          </DescriptionWrapper>
+          <Description>{description}</Description>
         </View>
         {children}
       </Wrapper>

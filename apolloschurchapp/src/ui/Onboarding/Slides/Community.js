@@ -10,8 +10,7 @@ const Features = memo(
     <Slide {...props}>
       {BackgroundComponent}
       <SlideContent
-        icon="go-do-good"
-        title={"We're Glad You're Here."}
+        title={'Support Your Community Through Prayer'}
         description={description}
       />
     </Slide>

@@ -11,15 +11,16 @@ import {
 import { AnalyticsConsumer } from '@apollosproject/ui-analytics';
 
 import {
-  AskNotificationsConnected,
-  LocationFinderConnected,
-  FollowConnected,
   OnboardingSwiper,
   onboardingComplete,
   WITH_USER_ID,
 } from '@apollosproject/ui-onboarding';
 
 import Features from './Slides/Features';
+import BeReady from './Slides/BeReady';
+import Community from './Slides/Community';
+import GetSet from './Slides/GetSet';
+import GoServe from './Slides/GoServe';
 
 const ONBOARDING_VERSION = 2;
 
@@ -42,9 +43,10 @@ function Onboarding(props) {
   const userVersion = route?.params?.userVersion || props?.userVersion || 0;
   const slides = props?.slides || [
     Features,
-    LocationFinderConnected,
-    AskNotificationsConnected,
-    FollowConnected,
+    BeReady,
+    GetSet,
+    GoServe,
+    Community,
   ];
   const { data } = useQuery(WITH_USER_ID, { fetchPolicy: 'network-only' });
   return (

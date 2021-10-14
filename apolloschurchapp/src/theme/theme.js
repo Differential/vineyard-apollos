@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text } from 'react-native';
+import ContentNodeHeader from '../ui/ContentNodeHeader';
 
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
@@ -102,6 +103,10 @@ const overrides = {
     description: () => (
       <Text>Follow Others To Stay Connected To Our Community</Text>
     ),
+  },
+  'ui-connected.ContentNodeConnected': {
+    // eslint-disable-next-line react/display-name
+    HeaderComponent: () => (props) => <ContentNodeHeader {...props} />,
   },
 };
 

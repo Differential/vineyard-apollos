@@ -1,3 +1,6 @@
+import React from 'react';
+import { Text } from 'react-native';
+
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
 
@@ -74,7 +77,19 @@ const typography = {
  * }
  * ```
  */
-const overrides = { ContentSingle: { autoComplete: false } };
+const overrides = {
+  ContentSingle: { autoComplete: false },
+  'ui-auth.Entry': {
+    authTitleText: "Let's Connect!",
+    // eslint-disable-next-line react/display-name
+    promptText: () => (
+      <Text>
+        Sign In For A Personalized Experience That Helps You Grow And Show
+        God&apos;s Love Beyond The Church Walls.
+      </Text>
+    ),
+  },
+};
 
 export default {
   colors,

@@ -96,7 +96,9 @@ const overrides = {
     ),
   },
   'ui-onboarding.Follow': {
+    // eslint-disable-next-line react/display-name
     slideTitle: () => <Text>Get Connected</Text>,
+    // eslint-disable-next-line react/display-name
     description: () => (
       <Text>Follow Others To Stay Connected To Our Community</Text>
     ),

@@ -95,7 +95,7 @@ const overrides = {
       </Text>
     ),
   },
-  'ui-onboarding.AskNotifications': {
+  'ui-onboarding.Follow': {
     slideTitle: () => <Text>Get Connected</Text>,
     description: () => (
       <Text>Follow Others To Stay Connected To Our Community</Text>

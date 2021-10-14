@@ -80,13 +80,25 @@ const typography = {
 const overrides = {
   ContentSingle: { autoComplete: false },
   'ui-auth.Entry': {
-    authTitleText: "Let's Connect!",
+    authTitleText: 'Have We Met?',
     // eslint-disable-next-line react/display-name
-    promptText: () => (
+    promptText: `Sign In For A Personalized Experience That Helps You Grow And Show God's Love Beyond The Church Walls`,
+  },
+  'ui-onboarding.AskNotifications': {
+    // eslint-disable-next-line react/display-name
+    slideTitle: () => <Text>Can We Keep You Informed?</Text>,
+    // eslint-disable-next-line react/display-name
+    description: () => (
       <Text>
-        Sign In For A Personalized Experience That Helps You Grow And Show
-        God&apos;s Love Beyond The Church Walls.
+        We&apos;ll Let You Know When Important Things Are Happening And Keep You
+        In The Loop
       </Text>
+    ),
+  },
+  'ui-onboarding.AskNotifications': {
+    slideTitle: () => <Text>Get Connected</Text>,
+    description: () => (
+      <Text>Follow Others To Stay Connected To Our Community</Text>
     ),
   },
 };

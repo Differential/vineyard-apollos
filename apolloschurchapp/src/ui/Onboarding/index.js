@@ -14,13 +14,9 @@ import {
   OnboardingSwiper,
   onboardingComplete,
   WITH_USER_ID,
+  AskNotificationsConnected,
+  FollowConnected,
 } from '@apollosproject/ui-onboarding';
-
-import Features from './Slides/Features';
-import BeReady from './Slides/BeReady';
-import Community from './Slides/Community';
-import GetSet from './Slides/GetSet';
-import GoServe from './Slides/GoServe';
 
 const ONBOARDING_VERSION = 2;
 
@@ -41,13 +37,7 @@ function Onboarding(props) {
   const navigation = useNavigation();
 
   const userVersion = route?.params?.userVersion || props?.userVersion || 0;
-  const slides = props?.slides || [
-    Features,
-    BeReady,
-    GetSet,
-    GoServe,
-    Community,
-  ];
+  const slides = props?.slides || [AskNotificationsConnected, FollowConnected];
   const { data } = useQuery(WITH_USER_ID, { fetchPolicy: 'network-only' });
   return (
     <AnalyticsConsumer>

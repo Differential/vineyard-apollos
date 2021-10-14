@@ -135,7 +135,8 @@ TABS:
         arguments:
           channelIds:
             - 2055
-      type: HeroList
+          limit: 1
+      type: VerticalCardList
     - algorithms:
         - type: CONTENT_FEED
           arguments:
@@ -152,7 +153,8 @@ TABS:
           channelIds:
             - 2056
           limit: 1
-      type: HeroList
+          subtitle: Get Set
+      type: VerticalCardList
       subtitle: Daily Challenge
     - algorithms:
       - type: COMPLETED_CONTENT_FEED

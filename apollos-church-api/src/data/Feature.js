@@ -8,6 +8,7 @@ const id = (type) => ({ apollosId, id: rootId }) =>
   apollosId || createGlobalId(rootId, type);
 
 const { models, migrations } = Feature;
+
 class dataSource extends Feature.dataSource {
   getLocationFeature = async (args) => {
     const contentItemId = args.nodeId.split(':')[1];
@@ -84,6 +85,7 @@ const resolver = {
 
 const schema = gql`
   ${Feature.schema}
+
   type LocationFeature implements Feature & Node {
     id: ID!
     order: Int
@@ -96,6 +98,7 @@ const schema = gql`
     long: Float
     date: String
   }
+
   extend type Query {
     getLocationFeature(nodeId: ID!): LocationFeature
       @cacheControl(scope: PRIVATE)

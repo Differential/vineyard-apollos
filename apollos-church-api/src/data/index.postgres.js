@@ -56,6 +56,7 @@ import {
   PrayerRequest as PostgresPrayerRequest,
 } from '@apollosproject/data-connector-postgres';
 
+import * as PostgresFeature from './Feature';
 import * as Theme from './theme';
 import * as PostgresActionAlgorithm from './ActionAlgorithm';
 import * as PostgresFeature from './Feature';

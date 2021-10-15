@@ -34,7 +34,9 @@ const HomeTabHeader = () => {
   return (
     <StyledCard>
       <DateText>{today}</DateText>
-      <GreetingText>{`Welcome, ${firstName}!`}</GreetingText>
+      <GreetingText>
+        {firstName ? `Welcome, ${firstName}!` : 'Welcome!'}
+      </GreetingText>
     </StyledCard>
   );
 };

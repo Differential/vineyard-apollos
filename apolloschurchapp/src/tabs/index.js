@@ -21,9 +21,8 @@ import {
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 // import Connect from './connect';
 import theme from '../theme';
-import tabBarIcon from './tabBarIcon';
-
 import HomeTabHeader from '../ui/HomeTabHeaderFeatureConnected/HomeTabHeader';
+import tabBarIcon from './tabBarIcon';
 
 const HeaderLogo = withTheme(() => ({
   size: 24,
@@ -46,7 +45,7 @@ SearchButton.propTypes = {
   onPress: PropTypes.func,
 };
 
-const Avatar = withTheme(({ theme: { sizing: { baseUnit } } }) => ({
+const Avatar = withTheme(() => ({
   size: 'xsmall',
 }))(UserAvatarConnected);
 

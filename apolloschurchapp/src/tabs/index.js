@@ -16,11 +16,14 @@ import { useApolloClient } from '@apollo/client';
 import {
   createFeatureFeedTab,
   UserAvatarConnected,
+  DefaultTabComponent,
 } from '@apollosproject/ui-connected';
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 // import Connect from './connect';
 import theme from '../theme';
 import tabBarIcon from './tabBarIcon';
+
+import HomeTabHeader from '../ui/HomeTabHeaderFeatureConnected/HomeTabHeader';
 
 const HeaderLogo = withTheme(() => ({
   size: 24,
@@ -81,6 +84,12 @@ const HeaderRight = () => {
   );
 };
 
+const HomeTabWithHeader = (props) => (
+  <>
+    <HomeTabHeader />
+    <DefaultTabComponent {...props} />
+  </>
+);
 // we nest stack inside of tabs so we can use all the fancy native header features
 const HomeTab = createFeatureFeedTab({
   options: {
@@ -91,6 +100,7 @@ const HomeTab = createFeatureFeedTab({
   },
   tabName: 'Home',
   feedName: 'HOME',
+  TabComponent: HomeTabWithHeader,
 });
 
 const ReadyTab = createFeatureFeedTab({

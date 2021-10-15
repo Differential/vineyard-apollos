@@ -7,10 +7,10 @@ import { format, startOfToday } from 'date-fns';
 import GET_USER_NAME from './getUserName';
 
 const StyledCard = styled(({ theme }) => ({
-  backgroundColor: theme.colors.transparent || undefined,
+  backgroundColor: theme.colors.paper || undefined,
   ...{
-    marginHorizontal: theme.sizing.baseUnit,
-    marginVertical: theme.sizing.baseUnit * 0.75,
+    paddingHorizontal: theme.sizing.baseUnit,
+    paddingVertical: theme.sizing.baseUnit * 0.75,
   },
 }))(View);
 

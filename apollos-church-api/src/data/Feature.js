@@ -1,11 +1,6 @@
-import { get } from 'lodash';
-import { createGlobalId } from '@apollosproject/server-core';
 import { Feature } from '@apollosproject/data-connector-postgres';
 import gql from 'graphql-tag';
 import { Op } from 'sequelize';
-
-const id = (type) => ({ apollosId, id: rootId }) =>
-  apollosId || createGlobalId(rootId, type);
 
 const { models, migrations } = Feature;
 
@@ -58,11 +53,7 @@ const resolver = {
       }),
   },
   CardListItem: {
-    coverImage: ({ image }) => image,
-    title: ({ title }, { hyphenated }, { dataSources: { ContentItem } }) =>
-      title && hyphenated
-        ? ContentItem.createHyphenatedString({ text: title })
-        : title,
+    ...Feature.resolver.CardListItem,
     actionIcon: ({ subtitle }) => {
       switch (subtitle) {
         case 'Be Ready':
@@ -75,11 +66,6 @@ const resolver = {
           return null;
       }
     },
-    hasAction: (root, args, { dataSources: { ContentItem } }) =>
-      root.attributes &&
-      !!get(ContentItem.getVideos(root.relatedNode), '[0].sources[0]', null),
-    labelText: ({ subtitle }) => subtitle,
-    id: id('CardListItem'),
   },
 };
 

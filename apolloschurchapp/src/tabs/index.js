@@ -21,7 +21,7 @@ import {
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 // import Connect from './connect';
 import theme from '../theme';
-import HomeTabHeader from '../ui/HomeTabHeaderFeatureConnected/HomeTabHeader';
+import HomeTabHeader from '../ui/HomeTabHeader';
 import tabBarIcon from './tabBarIcon';
 
 const HeaderLogo = withTheme(() => ({

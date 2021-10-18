@@ -40,6 +40,7 @@ class dataSource extends ActionAlgorithm.dataSource {
     return contentFeed.map((item) => ({
       ...item,
       ...Feature.attachActionIds({
+        ...item
         action: 'OPEN_URL',
         relatedNode: {
           __typename: 'Url',

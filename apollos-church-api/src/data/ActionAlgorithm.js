@@ -7,7 +7,7 @@ class dataSource extends ActionAlgorithm.dataSource {
     ...this.ACTION_ALGORITHMS,
     COMPLETED_CONTENT_FEED: this.completedContentFeedAlgorithm.bind(this),
     SERIES_ITEM_IN_PROGRESS: this.seriesItemInProgressAlgorithm.bind(this),
-    OPEN_URL_CONTENT_FEED: this.openURLContentFeedAlgorithm.bind(this),
+    OPEN_GO_TAB: this.openGoTabAlgorithm.bind(this),
   };
 
   async contentFeedAlgorithm({
@@ -33,14 +33,14 @@ class dataSource extends ActionAlgorithm.dataSource {
     }));
   }
 
-  async openURLContentFeedAlgorithm(...args) {
+  async openGoTabAlgorithm(...args) {
     const { Feature } = this.context.dataSources;
     const contentFeed = await this.contentFeedAlgorithm(...args);
 
     return contentFeed.map((item) => ({
       ...item,
       ...Feature.attachActionIds({
-        ...item
+        ...item,
         action: 'OPEN_URL',
         relatedNode: {
           __typename: 'Url',

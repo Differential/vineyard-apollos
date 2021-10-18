@@ -20,6 +20,7 @@ import {
 import { checkOnboardingStatusAndNavigate } from '@apollosproject/ui-onboarding';
 // import Connect from './connect';
 import theme from '../theme';
+import createStoriesTab from '../ui/StoriesTabConnected';
 import tabBarIcon from './tabBarIcon';
 
 const HeaderLogo = withTheme(() => ({
@@ -121,10 +122,9 @@ const GoTab = createFeatureFeedTab({
   feedName: 'PRAY',
 });
 
-// This is not hooked up to the schema yet
-const StoriesTab = createFeatureFeedTab({
+const StoriesTab = createStoriesTab({
   tabName: 'Stories',
-  // feedName: 'STORIES',
+  feedName: 'STORIES',
   options: {
     headerLeft: HeaderLeft,
   },

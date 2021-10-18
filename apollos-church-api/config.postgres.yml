@@ -116,7 +116,7 @@ TABS:
           subtitle: Get Set
       type: VerticalCardList
     - algorithms:
-      - type: CONTENT_FEED
+      - type: OPEN_URL_CONTENT_FEED
         arguments:
           channelIds:
             - 2060

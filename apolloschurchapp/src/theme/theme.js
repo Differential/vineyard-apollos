@@ -1,5 +1,9 @@
 import React from 'react';
+import { Text } from 'react-native';
+import { ButtonLink } from '@apollosproject/ui-kit';
+import { safeHandleUrl } from '@apollosproject/ui-connected';
 import ContentNodeHeader from '../ui/ContentNodeHeader';
+
 /* Add your custom theme definitions below. Anything that is supported in UI-Kit Theme can be
  overridden and/or customized here! */
 
@@ -13,6 +17,18 @@ const colors = {
   primary: 'rgba(79, 110, 174, 1)',
   secondary: 'rgba(95, 192, 194, 1)',
   tertiary: 'rgba(250, 101, 85, 1)',
+};
+
+const types = {
+  light: {
+    colors: {
+      screen: '#DDDFDF',
+      background: {
+        screen: '#DDDFDF',
+        regular: '#FFFFFF',
+      },
+    },
+  },
 };
 
 /* Base Typography sizing and fonts.
@@ -78,6 +94,43 @@ const typography = {
  */
 const overrides = {
   ContentSingle: { autoComplete: false },
+  'ui-auth.Entry': {
+    authTitleText: 'Have We Met?',
+    // eslint-disable-next-line react/display-name
+    promptText: `Sign In For A Personalized Experience That Helps You Grow And Show God's Love Beyond The Church Walls`,
+    // eslint-disable-next-line react/display-name
+    footerComponent: () => (
+      <Text>
+        By Clicking &quot;Next,&quot; You Accept Our{' '}
+        <ButtonLink
+          onPress={() =>
+            safeHandleUrl('https://www.vineyardcincinnati.com/privacy')
+          }
+        >
+          Privacy Policy And Terms Of Use.
+        </ButtonLink>
+      </Text>
+    ),
+  },
+  'ui-onboarding.AskNotifications': {
+    // eslint-disable-next-line react/display-name
+    slideTitle: () => <Text>Can We Keep You Informed?</Text>,
+    // eslint-disable-next-line react/display-name
+    description: () => (
+      <Text>
+        We&apos;ll Let You Know When Important Things Are Happening And Keep You
+        In The Loop
+      </Text>
+    ),
+  },
+  'ui-onboarding.Follow': {
+    // eslint-disable-next-line react/display-name
+    slideTitle: () => <Text>Get Connected</Text>,
+    // eslint-disable-next-line react/display-name
+    description: () => (
+      <Text>Follow Others To Stay Connected To Our Community</Text>
+    ),
+  },
   'ui-connected.ContentNodeConnected': {
     // eslint-disable-next-line react/display-name
     HeaderComponent: () => (props) => <ContentNodeHeader {...props} />,
@@ -88,4 +141,5 @@ export default {
   colors,
   overrides,
   typography,
+  types,
 };

@@ -3,6 +3,8 @@ import gql from 'graphql-tag';
 import { Op } from 'sequelize';
 import ApollosConfig from '@apollosproject/config';
 
+const { models, migrations } = Feature;
+
 class dataSource extends Feature.dataSource {
   getLocationFeature = async (args) => {
     const contentItemId = args.nodeId.split(':')[1];
@@ -53,9 +55,22 @@ const resolver = {
     getContentItemId: (root, args, { dataSources }) =>
       ApollosConfig.TABS[args.tab]?.contentItemId,
   },
+  CardListItem: {
+    ...Feature.resolver.CardListItem,
+    actionIcon: ({ subtitle }) => {
+      switch (subtitle) {
+        case 'Be Ready':
+          return 'themed-ready';
+        case 'Get Set':
+          return 'themed-set';
+        case 'Go Serve':
+          return 'themed-go';
+        default:
+          return null;
+      }
+    },
+  },
 };
-
-const { models, migrations } = Feature;
 
 const schema = gql`
   ${Feature.schema}

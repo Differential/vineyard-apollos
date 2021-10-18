@@ -100,14 +100,13 @@ ROCK_MAPPINGS:
 TABS:
   HOME:
     - algorithms:
-      - type: CONTENT_FEED
+      - type: SERIES_ITEM_IN_PROGRESS
         arguments:
-          channelIds:
-            - 2055
+          categoryId: 8edb84c2-063a-45bf-b92e-845745edb57a
           limit: 1
           subtitle: Be Ready
           hasImage: false
-      type: HeroList
+      type: VerticalCardList
     - algorithms:
       - type: CONTENT_FEED
         arguments:
@@ -115,15 +114,15 @@ TABS:
             - 2056
           limit: 1
           subtitle: Get Set
-      type: HeroList
+      type: VerticalCardList
     - algorithms:
-      - type: CONTENT_FEED
+      - type: OPEN_GO_TAB
         arguments:
           channelIds:
             - 2060
           limit: 1
           subtitle: Go Serve
-      type: HeroList
+      type: VerticalCardList
     - algorithms: [DAILY_PRAYER]
       isCard: true
       type: PrayerList
@@ -131,11 +130,13 @@ TABS:
 
   READ: # Ready
     - algorithms:
-      - type: CONTENT_FEED
+      - type: SERIES_ITEM_IN_PROGRESS
         arguments:
           channelIds:
             - 2055
-      type: HeroList
+          limit: 1
+          categoryId: 8edb84c2-063a-45bf-b92e-845745edb57a
+      type: VerticalCardList
     - algorithms:
         - type: CONTENT_FEED
           arguments:
@@ -143,7 +144,7 @@ TABS:
               - 2054
             limit: 3
       type: HorizontalCardList
-      subtitle: Devotionals
+      subtitle: All Series
 
   WATCH: # Set
     - algorithms:
@@ -152,7 +153,8 @@ TABS:
           channelIds:
             - 2056
           limit: 1
-      type: HeroList
+          subtitle: Get Set
+      type: VerticalCardList
       subtitle: Daily Challenge
     - algorithms:
       - type: COMPLETED_CONTENT_FEED

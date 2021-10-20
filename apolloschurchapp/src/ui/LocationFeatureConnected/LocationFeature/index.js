@@ -11,12 +11,12 @@ export default function LocationFeature({
   city,
   state,
   zip,
-  // lat,
+  lat,
   long,
   date,
 }) {
   const address = `${street}, ${city}, ${state} ${zip}`;
-  const lat = undefined;
+
   return (
     <>
       {lat && (

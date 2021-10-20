@@ -3,7 +3,14 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { NodeFeaturesConnected } from '@apollosproject/ui-connected';
 import { gql, useQuery } from '@apollo/client';
+import { View } from 'react-native';
 import PropTypes from 'prop-types';
+import { styled } from '@apollosproject/ui-kit';
+
+const StoriesContainer = styled(({ theme }) => ({
+  flex: 1,
+  backgroundColor: theme.type === 'light' && 'white',
+}))(View);
 
 function StoriesTabConnected({ feedName }) {
   const { data } = useQuery(
@@ -22,7 +29,9 @@ function StoriesTabConnected({ feedName }) {
   if (data?.getContentItemId) {
     return (
       <BottomSheetModalProvider>
-        <NodeFeaturesConnected nodeId={data?.getContentItemId} />
+        <StoriesContainer>
+          <NodeFeaturesConnected nodeId={data?.getContentItemId} />
+        </StoriesContainer>
       </BottomSheetModalProvider>
     );
   }

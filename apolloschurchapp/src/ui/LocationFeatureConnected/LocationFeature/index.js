@@ -11,12 +11,12 @@ export default function LocationFeature({
   city,
   state,
   zip,
-  lat,
+  // lat,
   long,
   date,
 }) {
   const address = `${street}, ${city}, ${state} ${zip}`;
-
+  const lat = undefined;
   return (
     <>
       {lat && (
@@ -52,7 +52,6 @@ export default function LocationFeature({
         />
       ) : (
         <EventInfoItem
-          onPress={() => undefined}
           icon="pin"
           title={name || address}
           subtitle={name && address}

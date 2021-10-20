@@ -37,26 +37,16 @@ export default function LocationFeature({
           />
         </MapView>
       )}
-      {lat ? (
-        <EventInfoItem
-          onPress={() =>
-            openMap({
-              latitude: lat,
-              longitude: long,
-              query: address,
-            })
-          }
-          icon="pin"
-          title={name || address}
-          subtitle={name && address}
-        />
-      ) : (
-        <EventInfoItem
-          icon="pin"
-          title={name || address}
-          subtitle={name && address}
-        />
-      )}
+      <EventInfoItem
+        onPress={() =>
+          openMap({
+            query: address,
+          })
+        }
+        icon="pin"
+        title={name || address}
+        subtitle={name && address}
+      />
       {date && <EventInfoItem icon="time" title={date} />}
     </>
   );

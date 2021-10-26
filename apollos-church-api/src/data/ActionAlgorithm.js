@@ -6,6 +6,7 @@ class dataSource extends ActionAlgorithm.dataSource {
   ACTION_ALGORITHMS = {
     ...this.ACTION_ALGORITHMS,
     COMPLETED_CONTENT_FEED: this.completedContentFeedAlgorithm.bind(this),
+    SORTED_CONTENT_FEED: this.sortedContentFeedAlgorithm.bind(this),
     SERIES_ITEM_IN_PROGRESS: this.seriesItemInProgressAlgorithm.bind(this),
     OPEN_GO_TAB: this.openGoTabAlgorithm.bind(this),
   };
@@ -23,6 +24,35 @@ class dataSource extends ActionAlgorithm.dataSource {
       skip,
     });
     return items.map((item, i) => ({
+      id: `${item.id}${i}`,
+      title: item.title,
+      subtitle: subtitle || item.contentChannel?.name,
+      relatedNode: item,
+      image: hasImage ? item.getCoverImage() : null,
+      action: 'READ_CONTENT',
+      summary: item.summary,
+    }));
+  }
+
+  async sortedContentFeedAlgorithm({
+    subtitle = '',
+    channelIds = [],
+    limit = 20,
+    skip = 0,
+    hasImage = true,
+  } = {}) {
+    const { ContentItem } = this.context.dataSources;
+    const items = await ContentItem.getFromCategoryIds(channelIds, {
+      limit,
+      skip,
+    });
+    // Sorts Items from Oldest to Newest
+    const sortedItems = items.sort((a, b) => {
+      const aDate = new Date(a.publishAt);
+      const bDate = new Date(b.publishAt);
+      return aDate - bDate;
+    });
+    return sortedItems.map((item, i) => ({
       id: `${item.id}${i}`,
       title: item.title,
       subtitle: subtitle || item.contentChannel?.name,

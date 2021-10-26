@@ -149,7 +149,7 @@ TABS:
           categoryId: 8edb84c2-063a-45bf-b92e-845745edb57a
       type: VerticalCardList
     - algorithms:
-        - type: SORTED_CONTENT_FEED
+        - type: OLDEST_TO_NEWEST_CONTENT_FEED
           arguments:
             channelIds:
               - 20e2ef52-00e4-4530-864f-c3b7d67d6438

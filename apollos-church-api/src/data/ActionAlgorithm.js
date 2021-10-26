@@ -1,4 +1,5 @@
 import { ActionAlgorithm } from '@apollosproject/data-connector-postgres';
+import { Op } from 'sequelize';
 
 const { schema, resolver } = ActionAlgorithm;
 
@@ -6,7 +7,7 @@ class dataSource extends ActionAlgorithm.dataSource {
   ACTION_ALGORITHMS = {
     ...this.ACTION_ALGORITHMS,
     COMPLETED_CONTENT_FEED: this.completedContentFeedAlgorithm.bind(this),
-    SORTED_CONTENT_FEED: this.sortedContentFeedAlgorithm.bind(this),
+    OLDEST_TO_NEWEST_CONTENT_FEED: this.oldestToNewestContentFeedAlgorithm.bind(this),
     SERIES_ITEM_IN_PROGRESS: this.seriesItemInProgressAlgorithm.bind(this),
     OPEN_GO_TAB: this.openGoTabAlgorithm.bind(this),
   };
@@ -34,7 +35,7 @@ class dataSource extends ActionAlgorithm.dataSource {
     }));
   }
 
-  async sortedContentFeedAlgorithm({
+  async oldestToNewestContentFeedAlgorithm({
     subtitle = '',
     channelIds = [],
     limit = 20,
@@ -42,17 +43,17 @@ class dataSource extends ActionAlgorithm.dataSource {
     hasImage = true,
   } = {}) {
     const { ContentItem } = this.context.dataSources;
-    const items = await ContentItem.getFromCategoryIds(channelIds, {
+
+    // This is custom....normally it is sorted by DESC
+    const items = await ContentItem.model.findAll({
       limit,
       skip,
+      where: {
+        contentItemCategoryId: { [Op.in]: channelIds },
+      },
+      order: [['publishAt', 'ASC']],
     });
-    // Sorts Items from Oldest to Newest
-    // const sortedItems = items.sort((a, b) => {
-    //   const aDate = new Date(a.publishAt);
-    //   const bDate = new Date(b.publishAt);
-    //   return aDate - bDate;
-    // });
-    console.log('test: ', items.map((item) => item.publishAt));
+
     return items.map((item, i) => ({
       id: `${item.id}${i}`,
       title: item.title,

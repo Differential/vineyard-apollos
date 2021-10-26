@@ -1,7 +1,5 @@
 import { ContentItem } from '@apollosproject/data-connector-postgres';
 
-import { Op } from 'sequelize';
-
 const { schema, resolver, models, migrations } = ContentItem;
 
 class dataSource extends ContentItem.dataSource {

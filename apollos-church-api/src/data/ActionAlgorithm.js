@@ -47,12 +47,13 @@ class dataSource extends ActionAlgorithm.dataSource {
       skip,
     });
     // Sorts Items from Oldest to Newest
-    const sortedItems = items.sort((a, b) => {
-      const aDate = new Date(a.publishAt);
-      const bDate = new Date(b.publishAt);
-      return aDate - bDate;
-    });
-    return sortedItems.map((item, i) => ({
+    // const sortedItems = items.sort((a, b) => {
+    //   const aDate = new Date(a.publishAt);
+    //   const bDate = new Date(b.publishAt);
+    //   return aDate - bDate;
+    // });
+    console.log('test: ', items.map((item) => item.publishAt));
+    return items.map((item, i) => ({
       id: `${item.id}${i}`,
       title: item.title,
       subtitle: subtitle || item.contentChannel?.name,

@@ -152,7 +152,7 @@ TABS:
         - type: SORTED_CONTENT_FEED
           arguments:
             channelIds:
-              - 2054
+              - 20e2ef52-00e4-4530-864f-c3b7d67d6438
             limit: 6
       type: HorizontalCardList
       primaryAction:

@@ -177,12 +177,12 @@ class dataSource extends ActionAlgorithm.dataSource {
       )
       SELECT
           c.title parent_name,
-        u.id,
-        u.title,
-        u.apollos_id,
-        u.apollos_type,
-        u.cover_image_id,
-        u.summary
+          u.id,
+          u.title,
+          u.apollos_id,
+          u.apollos_type,
+          u.cover_image_id,
+          u.summary
       FROM
           content_item c
           JOIN uncompleted_items u ON c.id = u.parent_id

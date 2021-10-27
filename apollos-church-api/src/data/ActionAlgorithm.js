@@ -145,7 +145,7 @@ class dataSource extends ActionAlgorithm.dataSource {
           FROM
               content_item c
           WHERE
-              c.content_item_category_id = '8edb84c2-063a-45bf-b92e-845745edb57a'
+              c.content_item_category_id = '${categoryId}'
           ORDER BY
               (CASE
                     WHEN parent_id = '520871fb-feca-4f28-bfcc-cbdc26083472' THEN 1

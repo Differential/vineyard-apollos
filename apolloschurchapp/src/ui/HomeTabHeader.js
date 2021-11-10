@@ -22,7 +22,7 @@ const GreetingText = styled(({ theme }) => ({
 const Background = styled({
   width: '100%',
   marginTop: -80,
-  aspectRatio: 375 / 357,
+  aspectRatio: 375 / 357, // the image is 375px x 357px
   justifyContent: 'flex-end',
 })(ImageBackground);
 

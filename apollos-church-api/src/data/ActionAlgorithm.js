@@ -25,7 +25,6 @@ class dataSource extends ActionAlgorithm.dataSource {
     const items = await ContentItem.getFromCategoryIds(channelIds, {
       limit,
       skip,
-      // order: [['publishAt', 'DESC']],
     });
     return items.map((item, i) => ({
       id: `${item.id}${i}`,

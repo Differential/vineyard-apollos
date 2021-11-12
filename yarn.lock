@@ -373,10 +373,10 @@
   dependencies:
     react-native-device-info "^4.0.1"
 
-"@apollosproject/ui-auth@^2.36.2-canary.3":
-  version "2.36.2-canary.3"
-  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-2.36.2-canary.3.tgz#4bf955d792d707dd8b7212baae7d598ee8195fe0"
-  integrity sha512-kh66hdhxTQVBvmzMx6gzPnwLXxB0qwGfBWUVgt3Em1N0BSFwm2XcCNWZYngeUJxLGSTMuyOyTeRAWIb0V+YQ0w==
+"@apollosproject/ui-auth@^2.36.4-canary.3":
+  version "2.36.4-canary.3"
+  resolved "https://registry.yarnpkg.com/@apollosproject/ui-auth/-/ui-auth-2.36.4-canary.3.tgz#68efb31cd68af67d8c2ab956663f121a77c2c18a"
+  integrity sha512-606C5kU8cHg9S188RhXX+HKdeWbTgZ1TnGZdQZOm9rAcVu1nEsu3aoRFpePofQMdegMkLc+CGEpunUd6f6RCag==
   dependencies:
     formik "1.5.1"
     yup "^0.27.0"

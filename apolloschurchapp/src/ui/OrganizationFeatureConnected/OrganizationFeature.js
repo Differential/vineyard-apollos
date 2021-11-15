@@ -10,7 +10,9 @@ export default function OrganizationFeature({ name, logoUrl, isCard }) {
     <TouchableOpacity disabled style={styles.container(theme, isCard)}>
       <Image source={{ uri: logoUrl }} style={styles.image(theme)} />
       <View style={styles.textContainer}>
-        <H4 bold>{name}</H4>
+        <H4 bold style={styles.h4(theme)}>
+          {name}
+        </H4>
       </View>
     </TouchableOpacity>
   );
@@ -43,5 +45,8 @@ const styles = StyleSheet.create({
     height: theme.sizing.baseUnit * 2,
     width: theme.sizing.baseUnit * 2,
     borderRadius: 5,
+  }),
+  h4: ({ colors }) => ({
+    color: colors.text.secondary,
   }),
 });

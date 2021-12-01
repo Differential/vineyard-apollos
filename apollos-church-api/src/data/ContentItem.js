@@ -1,4 +1,5 @@
 import { ContentItem } from '@apollosproject/data-connector-postgres';
+import { createGlobalId } from '@apollosproject/server-core';
 
 const { schema, resolver, models, migrations } = ContentItem;
 
@@ -23,9 +24,16 @@ class dataSource extends ContentItem.dataSource {
       filteredFeatures.push(
         Feature.createActionTableFeature({
           __typename: 'ActionTableFeature',
-          title: 'test',
+          title: '',
           actions: [
             {
+              id: createGlobalId(
+                JSON.stringify({
+                  __typename: 'ActionTableItem',
+                  title: 'Share your story',
+                }),
+                'ActionTableItem'
+              ),
               title: 'Share your story',
               action: 'OPEN_URL',
               relatedNode: {

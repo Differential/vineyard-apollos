@@ -150,11 +150,12 @@ class dataSource extends ActionAlgorithm.dataSource {
             AND i.action = 'COMPLETE'
         AND i.person_id = '${personId}'
           ORDER BY
+              i.created_at DESC,
               publish_at ASC
           LIMIT 1000
       ),
       most_recent_completion AS (
-        select * from completed_items limit 1
+        SELECT * FROM completed_items LIMIT 1
       ),
       uncompleted_items AS (
         SELECT
@@ -169,8 +170,8 @@ class dataSource extends ActionAlgorithm.dataSource {
             a.cover_image_id,
             a.parent_id,
             CASE
-              WHEN most_recent_completion.id IS NOT null THEN 1
-              ELSE 0
+                WHEN most_recent_completion.id IS NOT null THEN 1
+                ELSE 0
             END as most_recent_series
         FROM
             content_item a
@@ -180,8 +181,8 @@ class dataSource extends ActionAlgorithm.dataSource {
             c.id IS NULL
             AND a.content_item_category_id = '${categoryId}'
         ORDER BY
-          most_recent_series DESC,
-          publish_at ASC
+            most_recent_series DESC,
+            publish_at ASC
         LIMIT 1
       )
       SELECT

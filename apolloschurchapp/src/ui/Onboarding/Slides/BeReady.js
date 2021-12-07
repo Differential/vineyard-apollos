@@ -56,9 +56,6 @@ Features.propTypes = {
 Features.defaultProps = {
   description:
     'Learn What It Takes To Do Good And Serve Others. Capture Your Thoughts Through Journaling.',
-  BackgroundComponent: () => () => {
-    <Background />;
-  },
 };
 
 export default named('ui-onboarding.Features')(Features);

@@ -22,17 +22,15 @@ const StyledSlideContent = styled({
   marginTop: '66%',
 })(SlideContent);
 
-const Features = memo(
-  ({ firstName, description, BackgroundComponent, ...props }) => (
-    <Slide {...props}>
-      {BackgroundComponent || <Background />}
-      <StyledSlideContent
-        title={'Be Ready To Grow Together'}
-        description={description}
-      />
-    </Slide>
-  )
-);
+const Features = memo(({ firstName, description, ...props }) => (
+  <Slide {...props}>
+    <Background />
+    <StyledSlideContent
+      title={'Be Ready To Grow Together'}
+      description={description}
+    />
+  </Slide>
+));
 
 Features.displayName = 'Features';
 
@@ -47,10 +45,6 @@ Features.propTypes = {
    * - `GradientOverlayImage` (@apollosproject/ui-kit) for increased readability
    * - `Video` (react-native-video) because moving pictures!
    */
-  BackgroundComponent: PropTypes.oneOfType([
-    PropTypes.arrayOf(PropTypes.node),
-    PropTypes.node,
-  ]),
 };
 
 Features.defaultProps = {

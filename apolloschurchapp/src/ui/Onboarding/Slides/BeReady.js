@@ -1,15 +1,32 @@
 import React, { memo } from 'react';
+import { Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { named } from '@apollosproject/ui-kit';
+import { styled, named, withTheme } from '@apollosproject/ui-kit';
 
 import { Slide } from '@apollosproject/ui-onboarding';
 import SlideContent from '../SlideContent';
 
+const Background = withTheme(({ theme }) => ({
+  style: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+  },
+  source:
+    theme.type === 'light'
+      ? require('./BeReadyLight.png')
+      : require('./BeReadyDark.png'),
+}))(Image);
+
+const StyledSlideContent = styled({
+  marginTop: '66%',
+})(SlideContent);
+
 const Features = memo(
   ({ firstName, description, BackgroundComponent, ...props }) => (
     <Slide {...props}>
-      {BackgroundComponent}
-      <SlideContent
+      {BackgroundComponent || <Background />}
+      <StyledSlideContent
         title={'Be Ready To Grow Together'}
         description={description}
       />
@@ -39,6 +56,9 @@ Features.propTypes = {
 Features.defaultProps = {
   description:
     'Learn What It Takes To Do Good And Serve Others. Capture Your Thoughts Through Journaling.',
+  BackgroundComponent: () => () => {
+    <Background />;
+  },
 };
 
 export default named('ui-onboarding.Features')(Features);

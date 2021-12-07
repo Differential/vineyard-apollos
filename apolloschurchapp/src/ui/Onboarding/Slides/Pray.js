@@ -1,15 +1,32 @@
 import React, { memo } from 'react';
+import { Image } from 'react-native';
 import PropTypes from 'prop-types';
-import { named } from '@apollosproject/ui-kit';
+import { styled, named, withTheme } from '@apollosproject/ui-kit';
 
 import { Slide } from '@apollosproject/ui-onboarding';
 import SlideContent from '../SlideContent';
 
+const Background = withTheme(({ theme }) => ({
+  style: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+  },
+  source:
+    theme.type === 'light'
+      ? require('./PrayLight.png')
+      : require('./PrayDark.png'),
+}))(Image);
+
+const StyledSlideContent = styled({
+  marginTop: '66%',
+})(SlideContent);
+
 const Features = memo(
   ({ firstName, description, BackgroundComponent, ...props }) => (
     <Slide {...props}>
-      {BackgroundComponent}
-      <SlideContent
+      {BackgroundComponent || <Background />}
+      <StyledSlideContent
         title={'Support Your Community Through Prayer'}
         description={description}
       />

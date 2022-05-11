@@ -1,37 +1,9 @@
 import { ContentItem } from '@apollosproject/data-connector-postgres';
-import { Sequelize } from 'sequelize';
 import { createGlobalId } from '@apollosproject/server-core';
 
-const { schema, models, migrations } = ContentItem;
+const { schema, resolver, models, migrations } = ContentItem;
 
 class dataSource extends ContentItem.dataSource {
-  async getContentItemTags({ limit }) {
-    const tags = await this.sequelize.models.tag.findAll({
-      subQuery: false,
-      limit,
-      includeIgnoreAttributes: false,
-      attributes: [
-        'name',
-        [Sequelize.fn('COUNT', Sequelize.col('contentItems.id')), 'itemsCount'],
-      ],
-      where: {
-        type: 'ContentItem',
-      },
-      include: [
-        {
-          model: this.sequelize.models.contentItem,
-          attributes: [],
-          as: 'contentItems',
-        },
-      ],
-      group: ['tag.id'],
-
-      order: [Sequelize.literal('"itemsCount" DESC')],
-    });
-
-    return tags.map(({ name }) => name);
-  }
-
   getFeatures = async (model) => {
     const { Feature } = this.context.dataSources;
     const features = await model.getFeatures({
@@ -77,14 +49,5 @@ class dataSource extends ContentItem.dataSource {
     return filteredFeatures;
   };
 }
-
-const resolver = {
-  ...ContentItem.resolver,
-  Query: {
-    ...ContentItem.resolver.Query,
-    contentItemTags: (root, args, { dataSources }) =>
-      dataSources.ContentItem.getContentItemTags({ limit: 10 }),
-  },
-};
 
 export { schema, resolver, dataSource, models, migrations };

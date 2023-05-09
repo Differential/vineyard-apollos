@@ -235,6 +235,17 @@ dependencies {
     } else {
       implementation jscFlavor
     }
+
+    // bug, https://github.com/facebook/react-native/issues/35979#issuecomment-1405377512
+    constraints {
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.0") {
+            because("kotlin-stdlib-jdk7 is now a part of kotlin-stdlib")
+        }
+        implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0") {
+            because("kotlin-stdlib-jdk8 is now a part of kotlin-stdlib")
+        }
+    }
+
 }
 
 // Run this once to be able to run the application with BUCK

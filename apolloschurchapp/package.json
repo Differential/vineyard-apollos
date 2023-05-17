@@ -1,6 +1,6 @@
 {
   "name": "GoDoGood",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "private": true,
   "engines": {
     "node": ">=14"
@@ -8,7 +8,7 @@
   "scripts": {
     "setup": "./scripts/init.sh",
     "ios": "react-native run-ios",
-    "android": "SIM=\"$($HOME/Library/Android/sdk/emulator/emulator -list-avds | sed -n 1p)\" && $HOME/Library/Android/sdk/emulator/emulator -avd \"${SIM}\" & react-native run-android",
+    "android": "$HOME/Library/Android/sdk/emulator/emulator -avd \"Pixel\" & react-native run-android",
     "lint": "eslint .",
     "postinstall": "jetify && yarn pods",
     "bump": "yarn version --patch",

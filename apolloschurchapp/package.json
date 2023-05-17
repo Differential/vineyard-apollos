@@ -54,7 +54,7 @@
     "@apollosproject/ui-notifications": "^2.42.0",
     "@apollosproject/ui-onboarding": "^2.42.0",
     "@apollosproject/ui-passes": "^2.42.0",
-    "@apollosproject/ui-prayer": "^3.6.0",
+    "@apollosproject/ui-prayer": "v3",
     "@apollosproject/ui-scripture": "^2.42.0",
     "@apollosproject/ui-storybook": "^2.31.0",
     "@apollosproject/ui-test-utils": "^2.42.0",

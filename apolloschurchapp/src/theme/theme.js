@@ -98,7 +98,8 @@ const overrides = {
   'ui-auth.Entry': {
     authTitleText: 'Have We Met?',
     // eslint-disable-next-line react/display-name
-    promptText: `Sign In For A Personalized Experience That Helps You Grow And Show God's Love Beyond The Church Walls.`,
+    promptText:
+      "Sign In For A Personalized Experience That Helps You Grow And Show God's Love Beyond The Church Walls.",
     // eslint-disable-next-line react/display-name
     footerComponent: () => (
       <Text>
@@ -144,14 +145,19 @@ const overrides = {
     HeaderComponent: () => (props) => <ContentNodeHeader {...props} />,
   },
   // eslint-disable-next-line react/display-name
-  'ui-kit.DefaultCard': () => ({ relatedNode, actionIcon, labelText }) => ({
-    LabelComponent:
-      actionIcon || labelText || !relatedNode?.id ? (
-        undefined
-      ) : (
-        <OrganizationFeatureConnected nodeId={relatedNode?.id} isCard />
-      ),
-  }),
+  'ui-kit.DefaultCard':
+    () =>
+    ({ relatedNode, actionIcon, labelText }) => ({
+      LabelComponent:
+        actionIcon || labelText || !relatedNode?.id ? undefined : (
+          <OrganizationFeatureConnected nodeId={relatedNode?.id} isCard />
+        ),
+    }),
+  'ui-connected.FeaturesFeedConnected':
+    () =>
+    ({ feedViewProps }) => ({
+      feedViewProps: { ...feedViewProps, removeClippedSubviews: false },
+    }),
 };
 
 export default {
